@@ -68,7 +68,7 @@ following actions occur:
 3. Frequently Asked Questions
 -----------------------------
 
-Q: What is the difference between WINDIVERT_LAYER_NETWORK and 
+Q: What is the difference between WINDIVERT_LAYER_NETWORK and
    WINDIVERT_LAYER_NETWORK_FORWARD?
 
 A: These are two distinct network layers that capture packets at different
@@ -88,7 +88,7 @@ A: These are two distinct network layers that capture packets at different
    - WINDIVERT_LAYER_NETWORK = packets TO/FROM this machine
    - WINDIVERT_LAYER_NETWORK_FORWARD = packets THROUGH this machine
 
-   Both layers support the same capabilities (blocking, injecting, and 
+   Both layers support the same capabilities (blocking, injecting, and
    capturing packet data), but they operate on different packet flows. Process
    ID information is not available at either of these layers due to technical
    limitations.
