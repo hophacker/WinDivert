@@ -65,14 +65,42 @@ following actions occur:
 (3) PROGRAM either drops, modifies, or re-injects the packet.  PROGRAM can
     re-inject the (modified) using a call to WinDivertSend().
 
-3. License
+3. Frequently Asked Questions
+-----------------------------
+
+Q: What is the difference between WINDIVERT_LAYER_NETWORK and
+   WINDIVERT_LAYER_NETWORK_FORWARD?
+
+A: These are two distinct network layers that capture packets at different
+   points in the network stack:
+
+   - WINDIVERT_LAYER_NETWORK: Captures network packets that are destined to or
+     originating from the local machine. Use this layer when you want to
+     intercept packets that the local machine is sending or receiving as an
+     endpoint.
+
+   - WINDIVERT_LAYER_NETWORK_FORWARD: Captures network packets that are being
+     forwarded/routed through the local machine (i.e., packets where the local
+     machine acts as a router or gateway, not as the source or destination).
+     Use this layer when you want to intercept transit traffic.
+
+   In summary:
+   - WINDIVERT_LAYER_NETWORK = packets TO/FROM this machine
+   - WINDIVERT_LAYER_NETWORK_FORWARD = packets THROUGH this machine
+
+   Both layers support the same capabilities (blocking, injecting, and
+   capturing packet data), but they operate on different packet flows. Process
+   ID information is not available at either of these layers due to technical
+   limitations.
+
+4. License
 ----------
 
 WinDivert is dual-licensed under your choice of the GNU Lesser General Public
 License (LGPL) Version 3 or the GNU General Public License (GPL) Version 2.
 See the LICENSE file for more information.
 
-4. About
+5. About
 --------
 
 WinDivert was written by basil.
